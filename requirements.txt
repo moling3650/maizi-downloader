@@ -1,0 +1,7 @@
+beautifulsoup4==4.5.1
+bs4==0.0.1
+ecdsa==0.13
+Fabric==1.12.0
+paramiko==1.17.2
+pycrypto==2.6.1
+requests==2.11.1
