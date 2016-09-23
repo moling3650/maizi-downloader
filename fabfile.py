@@ -25,24 +25,20 @@ def download(num):
     with io.open('content.txt', 'wb') as f:
         f.write(r.content)
 
-    # 用BeautifulSoup提取课程的所有连接
+    # 用BeautifulSoup提取课程的所有名字和连接
     soup = bs4.BeautifulSoup(io.open('content.txt', encoding='utf-8'), 'html.parser')
-    lesson_lists = soup.select('.lesson-lists > li > a')
 
-    data = {}
-    for lesson in lesson_lists:
+    lessons = {}
+    for lesson in soup.select('.lesson-lists > li > a'):
         url = 'http://www.maiziedu.com' + lesson.get('href')
-        data[lesson.find(class_='fl').text.encode('gbk')] = url
+        lessons[lesson.find(class_='fl').text.encode('gbk')] = url
 
     if not os.path.exists(TEMP_DIR):
         local('mkdir ' + TEMP_DIR)
 
-    for name, url in data.items():
-        with lcd(BASE_DIR):
+    with lcd(TEMP_DIR):
+        for name, url in lessons.items():
             local('you-get -O temp.mp4 %s' % url)
-            local('move temp.mp4 %s' % (TEMP_DIR))
-
-        with lcd(TEMP_DIR):
             local('move temp.mp4 %s.mp4' % (''.join(name.split())))
 
     with lcd(BASE_DIR):
