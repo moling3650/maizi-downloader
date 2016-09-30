@@ -33,15 +33,18 @@
 ### 迁移到python3
 版本混用的门槛太高了，写了一个纯python3的版本，不推荐用fabfile的方法下载，我也就不删除了，留着纪念。
 
-### 使用方法
-先确认你安装好`python3.5`和以下第三方库：
+<s>### 使用方法</s>  
+<s>先确认你安装好`python3.5`和以下第三方库：</s>
+<s>
 - beautifulsoup4==4.5.1
 - bs4==0.0.1
 - requests==2.11.1
 - you-get==0.4.555
 
 你也可以把这个[requirements.txt](https://github.com/moling3650/maizi-downloader/blob/master/requirements.txt)下载了，然后cmd执行`pip install -r \path\to\requirements.txt`，最后下载好[maizi_downloader_v3.py](https://github.com/moling3650/maizi-downloader/)，就在cmd执行 `python maizi_downloader_v3.py [课程的序号]`，`课程的序号`可以接收一个参数，也可以是多个参数，也可以是间接参数，也可以是混合参数，用空格分隔。
+</s>
 
+<s>
 example:
 ```
 python maizi_downloader_v3.py 111
@@ -50,5 +53,3 @@ python maizi_downloader_v3.py 111~115
 python maizi_downloader_v3.py 111~113 117 120~123
 ```
 
-### 注重！！！
-不支持虚拟环境*virtualenv*。
