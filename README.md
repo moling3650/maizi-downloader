@@ -26,4 +26,26 @@
 1. 爬取*html*虽然可以用`urllib`标准库，但是我选择`Requests`！
 2. 解析DOM虽然可以用`re`正则表达式，但是我选择`BeautifulSoup`！
 3. 其实拿到每节课的*url*还是要爬取解析的，但是我选择`you-get`！
-4. 最后是自动化处理工具`fabric`！以前都不知道这个神奇的工具怎么用，直至我用`fabric`在麦子学院抓取到`fabric`的课程！（我真的不是打广告~
+
+### 迁移到python3
+版本混用的门槛太高了，写了一个纯python3的版本，不推荐用fabfile的方法下载，我也就不删除了，留着纪念。
+
+### 使用方法
+先确认你安装好`python3.5`和以下第三方库：
+- beautifulsoup4==4.5.1
+- bs4==0.0.1
+- requests==2.11.1
+- you-get==0.4.555
+
+你也可以把这个[requirements.txt](https://github.com/moling3650/maizi-downloader/blob/master/requirements.txt)下载了，然后cmd执行`pip install -r \path\to\requirements.txt`，最后下载好[maizi_downloader_v3.py](https://github.com/moling3650/maizi-downloader/)，就在cmd执行 `python maizi_downloader_v3.py [课程的序号]`，`课程的序号`可以接收一个参数，也可以是多个参数，也可以是间接参数，也可以是混合参数，用空格分隔。
+
+example:
+```
+python maizi_downloader_v3.py 111
+python maizi_downloader_v3.py 111 112 113 114 115
+python maizi_downloader_v3.py 111~115
+python maizi_downloader_v3.py 111~113 117 120~123
+```
+
+### 注重！！！
+不支持虚拟环境*virtualenv*。
